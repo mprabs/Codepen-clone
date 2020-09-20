@@ -5,7 +5,16 @@ function App() {
 const [html, setHtml] = useState('')
 const [css, setCss] = useState('')
 const [javaScript, setJavaScript] = useState('')
-  return (
+
+const srcDoc = `
+  <html>
+    <body>${html}</body>
+    <style>${css}</style>
+    <script>${javaScript}</script>
+  </html>
+`
+
+return (
     <>
     <div className="pane top-pane">
       <Editor
@@ -28,7 +37,8 @@ const [javaScript, setJavaScript] = useState('')
        />
     </div>
     <div className="pane">
-      <iframe 
+      <iframe
+        srcDoc={srcDoc}
         title="output"
         sandbox="allow-scripts"
         frameBorder="0"
